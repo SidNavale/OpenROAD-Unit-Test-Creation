@@ -1,0 +1,64 @@
+VERSION 5.8 ;
+DIVIDERCHAR "/" ;
+BUSBITCHARS "[]" ;
+DESIGN buffer_chain ;
+UNITS DISTANCE MICRONS 2000 ;
+DIEAREA ( 0 0 ) ( 1000 50 ) ;  
+ROW ROW_0 FreePDK45_38x28_10R_NP_162NW_34O 10260 11200 N DO 2578 BY 1 STEP 380 0 ;
+ROW ROW_1 FreePDK45_38x28_10R_NP_162NW_34O 10260 14000 FS DO 2578 BY 1 STEP 380 0 ;
+ROW ROW_2 FreePDK45_38x28_10R_NP_162NW_34O 10260 16800 N DO 2578 BY 1 STEP 380 0 ;
+ROW ROW_3 FreePDK45_38x28_10R_NP_162NW_34O 10260 19600 FS DO 2578 BY 1 STEP 380 0 ;
+COMPONENTS 8 ;
+    - ff1_0 DFF_X1 + FIXED ( 10 10 ) N ;   
+    - ff1_1 DFF_X1 + FIXED ( 10 20 ) N ;   
+    - ff1_2 DFF_X1 + FIXED ( 10 30 ) N ;   
+    - ff1_3 DFF_X1 + FIXED ( 10 40 ) N ;   
+
+    - ff2_0 DFF_X1 + FIXED ( 900 10 ) N ; 
+    - ff2_1 DFF_X1 + FIXED ( 900 20 ) N ; 
+    - ff2_2 DFF_X1 + FIXED ( 900 30 ) N ; 
+    - ff2_3 DFF_X1 + FIXED ( 900 40 ) N ; 
+END COMPONENTS 
+PINS 9 ;
+    - clk + NET clk + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 10 5 ) E ;
+    - in0 + NET in0 + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 10 10 ) E ;
+    - in1 + NET in1 + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 100 20 ) E ;
+    - in2 + NET in2 + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 10 30 ) E ;
+    - in3 + NET in3 + DIRECTION INPUT + USE SIGNAL
+      + PORT
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 10 40 ) E ;
+    - out0 + NET out0 + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 900 10 ) E ;
+    - out1 + NET out1 + DIRECTION OUTPUT + USE SIGNAL
+      + PORT
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 900 20 ) E ;
+    - out2 + NET out2 + DIRECTION OUTPUT+ USE SIGNAL 
+      + PORT 
+        + LAYER metal2 ( -70 -70 ) ( 70 70 )
+        + FIXED ( 900 30 ) E;
+    - out3 + NET out3 + DIRECTION OUTPUT + USE SIGNAL 
+      + PORT 
+      	+ LAYER metal2( -70 -70 ) ( 70 70 )
+        + FIXED ( 900 40 ) E;
+END PINS
+SPECIALNETS 2 ;
+    - VDD ( * VDD ) + USE POWER ;
+    - VSS ( * VSS ) + USE GROUND ;
+END SPECIALNETS
+END DESIGN
